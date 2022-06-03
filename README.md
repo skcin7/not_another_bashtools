@@ -1,5 +1,7 @@
 # Not Another BashTools!
 
+A suite of utilities and tools to help make life using the bash shell a lot easier and more convenient.
+
 ## Public Website
 
 Git Repository: https://github.com/skcin7/not_another_bashtools
