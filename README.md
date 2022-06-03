@@ -1,6 +1,6 @@
 # Not Another BashTools!
 
-A suite of utilities and tools to help make life using the bash shell a lot easier and more convenient.
+A suite of utilities and tools to help make life using the bash shell easier.
 
 ## Public Website
 
