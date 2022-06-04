@@ -176,7 +176,7 @@ if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 	fi
 
 	if [ "${TO_RUN_GIT_COMMIT}" == "Y" ]; then
-		echo -e "\t ✅ Git Commit";
+		echo -e "\t ✅ Git Commit (Message: ${GIT_COMMIT_MESSAGE})";
 	else
 		echo -e "\t 🚫 Git Commit";
 	fi
