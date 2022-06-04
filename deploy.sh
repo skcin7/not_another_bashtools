@@ -62,6 +62,7 @@ fi
 
 
 echo "Deployment Finished!";
+echo \e "Summary: \n\t Rebuilt: ${TO_REBUILD_DISTRIBUTION} \n\t Git Add: ${TO_RUN_GIT_ADD} \n\t Git Commit: ${TO_RUN_GIT_COMMIT} \n\t Git Push: ${TO_RUN_GIT_PUSH}":
 echo "";
 exit 0;
 
