@@ -20,7 +20,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+#
 # Default NABT configuration.
+# All of this configuration may be overwritten in the `nabt.ini.bash` initialization file.
+#
+NABT__GREETNAME=$(whoami)
 NABT__AUTOBOOTSTRAP=1
 NABT__VERBOSE=1
 NABT__CODE_COMMAND=nano
@@ -29,12 +33,19 @@ NABT__UTILITIES=(
     "parse_git_branch"
     "php_helpers"
 )
+# Source the custom NABT configuration, which overrides the above default configuration.
+source "${NABT__PATH}/nabt.ini.bash"
+
+
+
+
+
+# Don't mess with this.
+NABT__IS_BOOTSTRAPPED=0
 NABT__RETURN_CODE=0
 
 
-# # Source the NABT initialization, which over-rides default YATB
-# # configuration for any values present in the initialization
-# source "${NABT__PATH}/nabt.ini.bash"
+
 
 
 
@@ -67,6 +78,18 @@ nabt__message() {
 #   0 if bootstrapper succeeds; non-zero on error
 #######################################
 nabt__execute_bootstrap() {
+
+    #
+    # Don't allow the bootstrapping to execute if it's already been executed in this bash session.
+    #
+    if [ ${NABT__IS_BOOTSTRAPPED} -eq 1 ]; then
+        NABT__RETURN_CODE=10
+        return 10;
+    fi
+
+    #
+    # Display a nice custom welcome message.
+    #
     if [ -n "${NABT__GREETNAME}" ]; then
         figlet "Welcome:";
         figlet "${NABT__GREETNAME}";
@@ -74,7 +97,7 @@ nabt__execute_bootstrap() {
         figlet "Not Another: BashTools!"
     fi
 
-    nabt__message "Bootstrapping..."
+    nabt__message "Bootstrapping Not Another BashTools!..."
 
 
     # Export variables to be enabled throughout the entire environment.
@@ -94,7 +117,10 @@ nabt__execute_bootstrap() {
         nabt__message "\tLoaded Utility: ${utility}";
     done
 
-    nabt__message "Bootstrapped."
+    nabt__message "✅ Bootstrapped Not Another BashTools!"
+    inspire.sh
+
+    NABT__IS_BOOTSTRAPPED=1
     NABT__RETURN_CODE=0
     return 0;
 }
@@ -109,30 +135,16 @@ nabt__execute_bootstrap() {
 #   0 if bootstrapper succeeds; non-zero on error
 #######################################
 nabt__bootstrap() {
-#    nabt__message "Not Another BashTools! - Bootstrapping..."
     nabt__execute_bootstrap
-
-#    if [ ${NABT__RETURN_CODE} -eq 0 ]; then
-#        nabt__message "Not Another BashTools! - Bootstrapped!"
-#    fi
 }
 
 
 
 
-
-alias bootstrap="nabt__bootstrap"
-
-# Automatically bootstrap for a new bash session.
-#Otherwise, bootstrapping must be done manually.
+#
+# Automatically bootstrap (initialize) NABT in each new bash session.
+# This may optionally be turned off in the custom configuration.
+#
 if [ ${NABT__AUTOBOOTSTRAP} -eq 1 ]; then
-#    # All this does is return the value (it doesn't echo)
-#    res=$(nabt__execute_bootstrap)
-#    echo $?
-
-#    nabt__message "Auto-Bootstrapping..."
     nabt__execute_bootstrap
-#    if [ ${NABT__RETURN_CODE} -eq 0 ]; then
-#        nabt__message "Auto-Bootstrapped!"
-#    fi
 fi

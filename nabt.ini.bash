@@ -16,7 +16,7 @@
 # Name to greet the user as when they log in.
 # Leave blank to be greeted by a generic message.
 #
-NABT__GREETNAME="Nick"
+NABT__GREETNAME="Nick Morgan"
 
 #
 # Automatically run bootstrapper in a new bash session.

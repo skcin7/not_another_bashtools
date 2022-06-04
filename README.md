@@ -1,10 +1,11 @@
 # Not Another BashTools!
 
-**What Is `Not Another BashTools!`?:** A suite of utilities and tools to help make life using the bash shell easier.
+**What Is "Not Another BashTools!"?:** A suite of utilities and tools to help make life using the bash shell easier.
 
 **Public Git Repository:** [https://github.com/skcin7/not_another_bashtools](https://github.com/skcin7/not_another_bashtools)
 
 NOTE: The public git repository is hosted at GitHub. Thank you to GitHub for providing it.
+
 
 ## How To Install
 
@@ -42,7 +43,26 @@ source "${NABT__PATH}/nabt.bootstrapper.bash"
 
 That's it! Now Not Another BashTools! should be installed and ready to be used by you!
 
-## Custom Configuration
+
+## How To Use
+
+As long as it's installed, just open up a bash session in your terminal of choice. Not Another BashTools! should automatically run, and you should be greeted with a welcome message when you open a new bash session.
+
+NABT comes with 2 special directories: `bin/` and `sh/`. Store binaries in `bin/` and shell scripts in `sh/`. Those binaries and shell scripts will be available to run via command line automatically.
+
+The `inspire.sh` shell script comes built in. To run it, simply type `inspire.sh` in any bash session you are in, to be inspired with an inspirational message. This provides as an example of how shell scripts can be run using NABT.
+
+
+## Available NABT Utilities
+
+Not Another BashTools! comes with a bunch of utilties, which are available for you to use right out of the box. You comment in/out (in the custom configuration `nabt.ini.bash` file) the specific utilities that you want to use/not use.
+
+* `nginx_helpers` - Helper methods for managing local NGINX web server environment.
+* `parse_git_branch` - Parses the current directory to check if it's a git repository, and if so it prints the branch name directly in the terminal as you use it. Super handy for those that use `git` for source code control management.
+* `php_helpers` - Helper methods for managing PHP environments, including switching PHP versions easily.
+
+
+## Custom NABT Configuration
 
 Inside the `nabt.ini.bash` file, you will find several configuration variables which you can custom configure based on your needs.
 
@@ -52,19 +72,6 @@ Inside the `nabt.ini.bash` file, you will find several configuration variables w
 * `NABT__CODE_COMMAND` - The default program you use to open/view/execute code. Should be a standard plain text editor, such as `vi`, `nano`, `subl`, or your default editor of choice for code.
 * `NABT__UTILITIES` - Array of NABT utilities to be included each time it bootstraps. You may optionally include/exclude whichever utilities you want, simply by commenting in/out the ones you want to use/not use.
 
-## How To Use
-
-Not Another BashTools! comes with 2 special directories: `bin/` and `sh/`. Store binaries in `bin/` and shell scripts in `sh/`. They will be available to run via command line automatically.
-
-The `inspire.sh` script comes built in. To run it, simply type `inspire.sh` in any bash session you are in, to be inspired with an inspirational message.
-
-## Available Utilities
-
-Not Another BashTools! comes with a bunch of utilties, which are available for you to use right out of the box. You comment in/out (in the custom configuration `nabt.ini.bash` file) the specific utilities that you want to use/not use.
-
-* `nginx_helpers` - Helper methods for managing local NGINX web server environment.
-* `parse_git_branch` - Parses the current directory to check if it's a git repository, and if so it prints the branch name directly in the terminal as you use it. Super handy for those that use `git` for source code control management.
-* `php_helpers` - Helper methods for managing PHP environments, including switching PHP versions easily.
 
 ## Contributing
 
