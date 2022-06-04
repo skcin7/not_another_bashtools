@@ -144,19 +144,19 @@ if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 
 	if [ "${TO_RUN_GIT_ADD}" == "Y" ]; then
 		git add -A .
-		echo -e "Git Command Executed!: \t \`git add -A .\` ";
+		echo -e "Git Command Completed!: \t \`git add -A .\` ";
 		echo "";
 	fi
 
 	if [ "${TO_RUN_GIT_COMMIT}" == "Y" ]; then
 		git commit -m "${GIT_COMMIT_MESSAGE}";
-		echo -e "Git Command Executed!: \t \`git commit -m \"${GIT_COMMIT_MESSAGE}\"\` ";
+		echo -e "Git Command Completed!: \t \`git commit -m \"${GIT_COMMIT_MESSAGE}\"\` ";
 		echo "";
 	fi
 
 	if [ "${TO_RUN_GIT_PUSH}" == "Y" ]; then
 		git push
-		echo -e "Git Command Executed!: \t \`git push\` ";
+		echo -e "Git Command Completed!: \t \`git push\` ";
 		echo "";
 	fi
 
