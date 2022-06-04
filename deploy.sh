@@ -162,21 +162,31 @@ if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 
 
 
-	echo "✅ The Deployment Was Successful!";
-	# echo -e "Summary: \n\t Rebuilt: ${TO_RUN_REBUILD} \n\t Git Add: ${TO_RUN_GIT_ADD} \n\t Git Commit: ${TO_RUN_GIT_COMMIT} \n\t Git Push: ${TO_RUN_GIT_PUSH}":
-	echo "Summary:";
+	echo "✅ The Deployment Was Successful! Summary:";
 	if [ "${TO_RUN_REBUILD}" == "Y" ]; then
 		echo -e "\t ✅ Rebuilt";
+	else
+		echo -e "\t 🚫 Rebuilt";
 	fi
+
 	if [ "${TO_RUN_GIT_ADD}" == "Y" ]; then
 		echo -e "\t ✅ Git Add";
+	else
+		echo -e "\t 🚫 Git Add";
 	fi
+
 	if [ "${TO_RUN_GIT_COMMIT}" == "Y" ]; then
 		echo -e "\t ✅ Git Commit";
+	else
+		echo -e "\t 🚫 Git Commit";
 	fi
+
 	if [ "${TO_RUN_GIT_PUSH}" == "Y" ]; then
 		echo -e "\t ✅ Git Push";
+	else
+		echo -e "\t 🚫 Git Push";
 	fi
+
 	echo "";
 	exit 0;
 
