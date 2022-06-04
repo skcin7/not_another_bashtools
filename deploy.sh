@@ -137,6 +137,7 @@ if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 	fi
 
 	echo "✅ Deployment Succeeded!";
+	echo -e "ℹ️  Summary: \n\t Rebuilt: ${TO_RUN_REBUILD} \n\t Git Add: ${TO_RUN_GIT_ADD} \n\t Git Commit: ${TO_RUN_GIT_COMMIT} \n\t Git Push: ${TO_RUN_GIT_PUSH}":
 	echo "";
 	exit 0;
 
@@ -155,4 +156,3 @@ fi
 # exit 1;
 
 
-# echo -e "Git Commands Executed!: \n\t \`git add -A .\` \n\t \`git commit -m \"${GIT_COMMIT_MESSAGE}\"\` \n\t \`git push\`    ";
