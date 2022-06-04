@@ -1,14 +1,12 @@
 # Not Another BashTools!
 
-A suite of utilities and tools to help make life using the bash shell easier.
+**What Is `Not Another BashTools!`?:** A suite of utilities and tools to help make life using the bash shell easier.
 
-## Public
+**Public Git Repository:** [https://github.com/skcin7/not_another_bashtools](https://github.com/skcin7/not_another_bashtools)
 
-Git Repository: https://github.com/skcin7/not_another_bashtools
+NOTE: The public git repository is hosted at GitHub. Thank you to GitHub for providing it.
 
-Both the repository and website are hosted at GitHub. Thanks to GitHub for providing it.
-
-## Installation
+## How To Install
 
 Installation is easy!
 
@@ -72,7 +70,7 @@ Not Another BashTools! comes with a bunch of utilties, which are available for y
 
 To contribute, create an issue in the Not Another BashTools! repository that is publicly hosted on GitHub. We can respond to the issue there. Thank you in advance for helping to make Not Another BashTools! a little bit better.
 
-Thank you for using Not Another BashTools!
+Thank you for using Not Another BashTools! I hope it has come in handy for you.
 
 Bye!
 
