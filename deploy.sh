@@ -110,7 +110,7 @@ if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ] || [ "${THE_DEPLOYMENT_IS_CONFIRM
 else
 	THE_DEPLOYMENT_IS_CONFIRMED="N"
 fi
-
+echo "";
 
 
 
@@ -133,6 +133,7 @@ fi
 if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 
 	echo "Deploying Now...";
+	echo "";
 
 	if [ "${TO_RUN_REBUILD}" == "Y" ]; then
 		echo "Rebuilding \`./dist/${GIT_TAG_VERSION}\`...";
@@ -160,7 +161,7 @@ if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 
 
 
-	echo "✅ Deployment Completed!";
+	echo "✅ The Deployment Was Successful!";
 	# echo -e "Summary: \n\t Rebuilt: ${TO_RUN_REBUILD} \n\t Git Add: ${TO_RUN_GIT_ADD} \n\t Git Commit: ${TO_RUN_GIT_COMMIT} \n\t Git Push: ${TO_RUN_GIT_PUSH}":
 	echo "Summary:";
 	if [ "${TO_RUN_REBUILD}" == "Y" ]; then
