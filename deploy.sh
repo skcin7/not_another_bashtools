@@ -132,31 +132,31 @@ echo "";
 #
 if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 
-	echo "Deploying Now...";
+	echo "Running The Deployment...";
 	echo "";
 
 	if [ "${TO_RUN_REBUILD}" == "Y" ]; then
-		echo "Rebuilding \`./dist/${GIT_TAG_VERSION}\`...";
+		# echo "Rebuilding \`./dist/${GIT_TAG_VERSION}\`...";
 		./build.sh
-		echo "\`./dist/${GIT_TAG_VERSION}\` Rebuilt!";
+		# echo "\`./dist/${GIT_TAG_VERSION}\` Rebuilt!";
 	fi
 
 	if [ "${TO_RUN_GIT_ADD}" == "Y" ]; then
 		git add -A .
-		echo -e "Git Command Executed!: \t \`git add -A .\` ";
-		echo "";
+		# echo -e "Git Command Executed!: \t \`git add -A .\` ";
+		# echo "";
 	fi
 
 	if [ "${TO_RUN_GIT_COMMIT}" == "Y" ]; then
 		git commit -m "${GIT_COMMIT_MESSAGE}";
-		echo -e "Git Command Executed!: \t \`git commit -m \"${GIT_COMMIT_MESSAGE}\"\` ";
-		echo "";
+		# echo -e "Git Command Executed!: \t \`git commit -m \"${GIT_COMMIT_MESSAGE}\"\` ";
+		# echo "";
 	fi
 
 	if [ "${TO_RUN_GIT_PUSH}" == "Y" ]; then
 		git push
-		echo -e "Git Command Executed!: \t \`git push\` ";
-		echo "";
+		# echo -e "Git Command Executed!: \t \`git push\` ";
+		# echo "";
 	fi
 
 
