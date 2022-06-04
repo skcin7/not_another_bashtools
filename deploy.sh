@@ -102,7 +102,7 @@ fi
 # First confirm the deployment with the user (ask for input).
 #
 echo "";
-echo -e "⚠️  Confirm Deployment (Y/N) (N): \n\t Rebuild?: ${TO_RUN_REBUILD} \n\t Git Add?: ${TO_RUN_GIT_ADD} \n\t Git Commit?: ${TO_RUN_GIT_COMMIT} \n\t Git Push?: ${TO_RUN_GIT_PUSH}";
+echo -e "⚠️  Confirm This Deployment (Y/N) (N): \n\t Rebuild?: ${TO_RUN_REBUILD} \n\t Git Add?: ${TO_RUN_GIT_ADD} \n\t Git Commit?: ${TO_RUN_GIT_COMMIT} \n\t Git Push?: ${TO_RUN_GIT_PUSH}";
 read -p "" THE_DEPLOYMENT_IS_CONFIRMED
 # read -p "Looks Good? (Y/N) (N): " THE_DEPLOYMENT_IS_CONFIRMED
 if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ] || [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "y" ]; then
@@ -132,6 +132,8 @@ fi
 #
 if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 
+	echo "Deploying Now...";
+
 	if [ "${TO_RUN_REBUILD}" == "Y" ]; then
 		echo "Rebuilding \`./dist/${GIT_TAG_VERSION}\`...";
 		./build.sh
@@ -158,20 +160,20 @@ if [ "${THE_DEPLOYMENT_IS_CONFIRMED}" == "Y" ]; then
 
 
 
-	echo "✅ Deployment Succeeded!";
+	echo "✅ Deployment Completed!";
 	# echo -e "Summary: \n\t Rebuilt: ${TO_RUN_REBUILD} \n\t Git Add: ${TO_RUN_GIT_ADD} \n\t Git Commit: ${TO_RUN_GIT_COMMIT} \n\t Git Push: ${TO_RUN_GIT_PUSH}":
 	echo "Summary:";
 	if [ "${TO_RUN_REBUILD}" == "Y" ]; then
-		echo -e "✅ Rebuilt";
+		echo -e "\t ✅ Rebuilt";
 	fi
 	if [ "${TO_RUN_GIT_ADD}" == "Y" ]; then
-		echo -e "✅ Git Add";
+		echo -e "\t ✅ Git Add";
 	fi
 	if [ "${TO_RUN_GIT_COMMIT}" == "Y" ]; then
-		echo -e "✅ Git Commit";
+		echo -e "\t ✅ Git Commit";
 	fi
 	if [ "${TO_RUN_GIT_PUSH}" == "Y" ]; then
-		echo -e "✅ Git Push";
+		echo -e "\t ✅ Git Push";
 	fi
 	echo "";
 	exit 0;
