@@ -44,10 +44,11 @@ fi
 
 
 
-if ${ALL_UTIL_TESTS_PASS}; then
-    echo -e "\n✅ All Tests Passed!";
-    exit 0;
-else
+if ! ${ALL_UTIL_TESTS_PASS}; then
     echo -e "\n🚫 Not All Tests Passed.";
     exit 10;
 fi
+
+
+echo -e "\n✅ All Tests Passed!";
+exit 0;
