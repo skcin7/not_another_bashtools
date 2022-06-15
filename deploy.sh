@@ -175,7 +175,6 @@ fi
 
 #Finally, actually run the deployment.
 echo "Running The Deployment...";
-echo "";
 
 
 if [ "${TO_RUN_REBUILD}" == "Y" ]; then
