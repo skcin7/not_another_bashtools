@@ -1,5 +1,6 @@
-#!/bin/bash
-# PHP helper for a bash profile
+#!/bin/sh
+# Not Another Terminal Tools - Utility
+#     Utility: WWW
 #
 # Copyright 2022 Nick Morgan
 #
@@ -16,19 +17,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-PHP_VERSION=''
 
-# Apple Silicon M1 Chipset
-alias php72="/opt/homebrew/opt/php@7.2/bin/php"
-alias php73="/opt/homebrew/opt/php@7.3/bin/php"
-alias php74="/opt/homebrew/opt/php@7.4/bin/php"
-alias php80="/opt/homebrew/opt/php@8.0/bin/php"
-alias php81="/opt/homebrew/opt/php@8.1/bin/php"
-
-# Make switching versions easy
-# From: https://kevdees.com/macos-11-big-sur-nginx-setup-multiple-php-versions/
-function phpv() {
-    brew unlink php
-    brew link --overwrite --force "php@$1"
-    php -v
+#
+# Change into www directory.
+#
+www() {
+    divider "WWW";
+    cd "${HOME}/www";
+    echo -e "Changed Into WWW Directory: ${HOME}/www";
+    return 0;
 }
+

@@ -16,28 +16,32 @@
 # Name to greet the user as when they log in.
 # Leave blank to be greeted by a generic message.
 #
-NABT__GREETNAME="Nick Morgan"
+NATT__GREETNAME="Nick Morgan"
 
 #
 # Automatically run bootstrapper in a new bash session.
 #
-NABT__AUTOBOOTSTRAP=1
+NATT__AUTOBOOTSTRAP=1
 
 #
 # Whether to show messages verbosely.
 #
-NABT__VERBOSE=1
+NATT__VERBOSE=1
 
 #
 # Program for editing code. This should be a text editor, such as 'vi', 'nano', or whatever your preferred editor is for code.
 #
-NABT__CODE_COMMAND=subl
+NATT__CODE_COMMAND=subl
 
-#
-# List of utilities to be included in the bootstrapper.
-#
-NABT__UTILITIES=(
-    "nginx_helpers"
-    "parse_git_branch"
-    "php_helpers"
+# #
+# # List of utilities to be included in the bootstrapper.
+# #
+NATT__UTILITIES=(
+    "nginxhelper"
+    # "parse_git_branch"
+    # "phphelper"
+    "utils"
+    "whiptail"
+    "shell"
+    "system"
 )

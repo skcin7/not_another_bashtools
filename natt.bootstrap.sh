@@ -1,5 +1,5 @@
-#!/bin/bash
-# Not Another BashTools!
+#!/bin/sh
+# Not Another Terminal Tools!
 # A set of tools and utilities to be used within a bash shell.
 #
 # Author: Nick Morgan
@@ -20,29 +20,52 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+
+
+
 #
 # Default NABT configuration.
 # All of this configuration may be overwritten in the `nabt.ini.bash` initialization file.
 #
-NABT__GREETNAME=$(whoami)
-NABT__AUTOBOOTSTRAP=1
-NABT__VERBOSE=1
-NABT__CODE_COMMAND=nano
-NABT__UTILITIES=(
-    "nginx_helpers"
-    "parse_git_branch"
-    "php_helpers"
+NATT__GREETNAME=$(whoami)
+NATT__AUTOBOOTSTRAP=1
+NATT__VERBOSE=1
+NATT__EDITOR=subl
+NATT__UTILITIES=(
+    "colors"
+    "dns"
+    "githelper"
+    "natt"
+    "nginxhelper"
+    "nginxhelpers2"
+    "phphelper"
+    "functions"
+    "whiptail"
+    "shell"
+    "system"
 )
-# Source the custom NABT configuration, which overrides the above default configuration.
-source "${NABT__PATH}/nabt.ini.bash"
+# source "${NATT__PATH}/nabt.ini.bash"
+
+# Whether development mode is on.
+NATT__DEVELOPMENT_MODE=true
+# Development utilities to be loaded when in development mode.
+NATT__DEVELOPMENT_MODE__UTILITIES=(
+    "colors_old"
+    "filesystem"
+    "www"
+)
+
+
+# # Source the custom NABT configuration, which overrides the above default configuration.
+# source "${NATT__PATH}/nabt.ini.bash"
 
 
 
 
 
 # Don't mess with this.
-NABT__IS_BOOTSTRAPPED=0
-NABT__RETURN_CODE=0
+NATT__IS_BOOTSTRAPPED=0
+NATT__RETURN_CODE=0
 
 
 
@@ -58,13 +81,13 @@ NABT__RETURN_CODE=0
 # RETURN:
 #   0
 #######################################
-nabt__message() {
+natt__message() {
     # Only if verbose mode is turned on.
-    if [ $NABT__VERBOSE -eq 1 ]; then
+    if [ $NATT__VERBOSE -eq 1 ]; then
         printf "$1\n";
     fi
 
-    NABT__RETURN_CODE=0
+    NATT__RETURN_CODE=0
     return 0
 }
 
@@ -77,51 +100,75 @@ nabt__message() {
 # RETURN:
 #   0 if bootstrapper succeeds; non-zero on error
 #######################################
-nabt__execute_bootstrap() {
+natt__execute_bootstrap() {
 
-    #
+        #
     # Don't allow the bootstrapping to execute if it's already been executed in this bash session.
     #
-    if [ ${NABT__IS_BOOTSTRAPPED} -eq 1 ]; then
-        NABT__RETURN_CODE=10
+    if [ ${NATT__IS_BOOTSTRAPPED} -eq 1 ]; then
+        NATT__RETURN_CODE=10
         return 10;
     fi
+
+
+    neofetch;
+
 
     #
     # Display a nice custom welcome message.
     #
-    if [ -n "${NABT__GREETNAME}" ]; then
-        figlet "Welcome:";
-        figlet "${NABT__GREETNAME}";
+    if [ -n "${NATT__GREETNAME}" ]; then
+        figlet -w${COLUMNS} "Welcome Back, ${NATT__GREETNAME}!";
+        # figlet "${NATT__GREETNAME}";
     else
         figlet "Not Another: BashTools!"
     fi
 
-    nabt__message "Bootstrapping Not Another BashTools!..."
+
+
+
+    natt__message "Bootstrapping Not Another Terminal Tools..."
 
 
     # Export variables to be enabled throughout the entire environment.
     # `bin` and `sh` directories, so those binaries/scripts may be used.
-    export PATH=$PATH:"${NABT__PATH}/bin"
-    export PATH=$PATH:"${NABT__PATH}/sh"
-    export NABT__VERBOSE=${NABT__VERBOSE}
+    export PATH=$PATH:"${NATT__PATH}/bin"
+    export PATH=$PATH:"${NATT__PATH}/sh"
+    export NATT__VERBOSE=${NATT__VERBOSE}
 
     # Load aliases.
-    alias "code=${NABT__CODE_COMMAND}"
+    alias "code=${NATT__EDITOR}"
     alias "hosts=code /etc/hosts"
     alias "ll=ls -lashG"
+    alias "sshconfig=code ${HOME}/.ssh/config"
+    alias "which=which -a"
+    # alias "nameservers=dig +short ns"
 
     # Load utilities
-    for utility in ${NABT__UTILITIES[@]}; do
-        source "${NABT__PATH}/utilities/${utility}.bash"
-        nabt__message "\tLoaded Utility: ${utility}";
+    for utility in ${NATT__UTILITIES[@]}; do
+        source "${NATT__PATH}/utilities/${utility}/${utility}.sh"
+        natt__message "\tLoaded Utility: ${utility}";
     done
 
-    nabt__message "✅ Bootstrapped Not Another BashTools!"
+
+
+    if [ "${NATT__DEVELOPMENT_MODE}" = true ]; then
+        echo -e "Development Mode.";
+
+        # Load development mode utilities
+        for dev_utility in ${NATT__DEVELOPMENT_MODE__UTILITIES[@]}; do
+            source "${NATT__PATH}/utilities_dev/${dev_utility}.sh"
+            natt__message "\tLoaded Dev Utility: ${dev_utility}";
+        done
+    fi
+
+
+
+    natt__message "✅ Not Another Terminal Tools - Bootstrapped"
     inspire.sh
 
-    NABT__IS_BOOTSTRAPPED=1
-    NABT__RETURN_CODE=0
+    NATT__IS_BOOTSTRAPPED=1
+    NATT__RETURN_CODE=0
     return 0;
 }
 
@@ -134,8 +181,8 @@ nabt__execute_bootstrap() {
 # RETURN:
 #   0 if bootstrapper succeeds; non-zero on error
 #######################################
-nabt__bootstrap() {
-    nabt__execute_bootstrap
+natt__bootstrap() {
+    natt__execute_bootstrap
 }
 
 
@@ -145,6 +192,6 @@ nabt__bootstrap() {
 # Automatically bootstrap (initialize) NABT in each new bash session.
 # This may optionally be turned off in the custom configuration.
 #
-if [ ${NABT__AUTOBOOTSTRAP} -eq 1 ]; then
-    nabt__execute_bootstrap
+if [ ${NATT__AUTOBOOTSTRAP} -eq 1 ]; then
+    natt__execute_bootstrap
 fi
