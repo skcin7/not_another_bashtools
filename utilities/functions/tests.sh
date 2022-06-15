@@ -220,67 +220,67 @@ exit 0;
 # }
 
 
-source "${HOME}/.not_another_terminal_tools/utilities/functions/functions.sh";
+# source "${HOME}/.not_another_terminal_tools/utilities/functions/functions.sh";
 
-# ${HOME}/.not_another_terminal_tools/utilities/functions/functions.sh;
+# # ${HOME}/.not_another_terminal_tools/utilities/functions/functions.sh;
 
-# echo "$(whoami)";
-
-
-##########
-# TESTS: #
-##########
-
-#
-# Test for with no function argument supplied.
-#
-natt_utility__functions__test__cmd_exists() {
-    local COMMAND_PASSES=true;
-
-    if $(natt_utility__functions__fn__cmd_exists); then
-        COMMAND_PASSES=false;
-    fi
-
-    if ! $(natt_utility__functions__fn__cmd_exists); then
-        COMMAND_PASSES=false;
-    fi
+# # echo "$(whoami)";
 
 
-    false;
-}
+# ##########
+# # TESTS: #
+# ##########
+
+# #
+# # Test for with no function argument supplied.
+# #
+# natt_utility__functions__test__cmd_exists() {
+#     local COMMAND_PASSES=true;
+
+#     if $(natt_utility__functions__fn__cmd_exists); then
+#         COMMAND_PASSES=false;
+#     fi
+
+#     if ! $(natt_utility__functions__fn__cmd_exists); then
+#         COMMAND_PASSES=false;
+#     fi
+
+
+#     false;
+# }
 
 
 
 
-#
-# Test for with no function argument supplied.
-#
-natt_utility__functions__test__no_function_argument_not_exists() {
-    if ! $(natt_utility__functions__fn__fn_exists); then
-        return;
-    fi
-    false;
-}
+# #
+# # Test for with no function argument supplied.
+# #
+# natt_utility__functions__test__no_function_argument_not_exists() {
+#     if ! $(natt_utility__functions__fn__fn_exists); then
+#         return;
+#     fi
+#     false;
+# }
 
-#
-# Test for a known existing function.
-#
-natt_utility__functions__test__known_existing_function_returns_true() {
-    if $(natt_utility__functions__fn__fn_exists "natt_utility__functions__fn__divider"); then
-        return;
-    fi
-    false;
-}
+# #
+# # Test for a known existing function.
+# #
+# natt_utility__functions__test__known_existing_function_returns_true() {
+#     if $(natt_utility__functions__fn__fn_exists "natt_utility__functions__fn__divider"); then
+#         return;
+#     fi
+#     false;
+# }
 
-#
-# Test for a known non-existing function.
-#
-natt_utility__functions__test__known_non_existing_function_returns_false() {
-    if ! $(natt_utility__functions__fn__fn_exists "this_function_does_not_exist_1234567890_qwertyuiopasdfghjklzxcvbnm"); then
-        return;
-    fi
-    false;
-}
+# #
+# # Test for a known non-existing function.
+# #
+# natt_utility__functions__test__known_non_existing_function_returns_false() {
+#     if ! $(natt_utility__functions__fn__fn_exists "this_function_does_not_exist_1234567890_qwertyuiopasdfghjklzxcvbnm"); then
+#         return;
+#     fi
+#     false;
+# }
 
 
 
@@ -358,103 +358,114 @@ natt_utility__functions__test__known_non_existing_function_returns_false() {
 
 
 
-divider "Utility: Functions - Tests";
+# divider "Utility: Functions - Tests";
 
-ALL_TESTS_PASS=true;
-TEST_PASSED_COUNT=0;
-TEST_FAILED_COUNT=0;
+# ALL_TESTS_PASS=true;
+# TEST_PASSED_COUNT=0;
+# TEST_FAILED_COUNT=0;
 
-declare -a NATT__UTILITY__FUNCTIONS__TESTS=(
-    "natt_utility__functions__test__no_function_argument_not_exists"
-    "known_existing_function_returns_true"
-    "non_existing_function_returns_false"
-)
-
-
-echo "Running Tests:";
+# declare -a NATT__UTILITY__FUNCTIONS__TESTS=(
+#     "natt_utility__functions__test__no_function_argument_not_exists"
+#     "known_existing_function_returns_true"
+#     "non_existing_function_returns_false"
+# )
 
 
-if $(natt_utility__functions__test__no_function_argument_not_exists); then
-    ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
-    echo -e "\t✅ no_function_argument_not_exists - Passed";
-else
-    ALL_TESTS_PASS=false;
-    ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
-    echo -e "\t🚫 no_function_argument_not_exists - Failed";
-fi
-
-if natt_utility__functions__test__known_existing_function_returns_true; then
-    ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
-    echo -e "\t✅ known_existing_function_returns_true - Passed";
-else
-    ALL_TESTS_PASS=false;
-    ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
-    echo -e "\t🚫 known_existing_function_returns_true - Failed";
-fi
-
-if natt_utility__functions__test__known_non_existing_function_returns_false; then
-    ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
-    echo -e "\t✅ known_non_existing_function_returns_false - Passed";
-else
-    ALL_TESTS_PASS=false;
-    ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
-    echo -e "\t🚫 known_non_existing_function_returns_false - Failed";
-fi
-
-# natt_utility__functions__test__known_existing_function_returns_true
-
-# natt_utility__functions__test__known_non_existing_function_returns_false
+# echo "Running Tests:";
 
 
-# if ! $(natt_utility__functions__fn__fn_exists); then
+# if $(natt_utility__functions__test__no_function_argument_not_exists); then
 #     ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
-#     # echo "✅ No Function Argument - Passed";
+#     echo -e "\t✅ no_function_argument_not_exists - Passed";
 # else
 #     ALL_TESTS_PASS=false;
 #     ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
-#     echo "🚫 No Function Argument - Failed";
+#     echo -e "\t🚫 no_function_argument_not_exists - Failed";
 # fi
 
-
-# if $(natt_utility__functions__fn__fn_exists "divider"); then
+# if natt_utility__functions__test__known_existing_function_returns_true; then
 #     ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
-#     # echo "✅ Known Existing Function - Passed";
+#     echo -e "\t✅ known_existing_function_returns_true - Passed";
 # else
 #     ALL_TESTS_PASS=false;
 #     ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
-#     echo "🚫 Known Existing Function - Failed";
+#     echo -e "\t🚫 known_existing_function_returns_true - Failed";
 # fi
 
-
-# if ! $(natt_utility__functions__test__known_non_existing_function_returns_false "this_function_does_not_exist_1234567890_qwertyuiopasdfghjklzxcvbnm"); then
+# if natt_utility__functions__test__known_non_existing_function_returns_false; then
 #     ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
-#     # echo "✅ Known Non-Existing Function - Passed";
+#     echo -e "\t✅ known_non_existing_function_returns_false - Passed";
 # else
 #     ALL_TESTS_PASS=false;
 #     ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
-#     echo "🚫 Known Non-Existing Function - Failed";
+#     echo -e "\t🚫 known_non_existing_function_returns_false - Failed";
 # fi
 
+# # natt_utility__functions__test__known_existing_function_returns_true
+
+# # natt_utility__functions__test__known_non_existing_function_returns_false
+
+
+# # if ! $(natt_utility__functions__fn__fn_exists); then
+# #     ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
+# #     # echo "✅ No Function Argument - Passed";
+# # else
+# #     ALL_TESTS_PASS=false;
+# #     ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
+# #     echo "🚫 No Function Argument - Failed";
+# # fi
+
+
+# # if $(natt_utility__functions__fn__fn_exists "divider"); then
+# #     ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
+# #     # echo "✅ Known Existing Function - Passed";
+# # else
+# #     ALL_TESTS_PASS=false;
+# #     ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
+# #     echo "🚫 Known Existing Function - Failed";
+# # fi
+
+
+# # if ! $(natt_utility__functions__test__known_non_existing_function_returns_false "this_function_does_not_exist_1234567890_qwertyuiopasdfghjklzxcvbnm"); then
+# #     ((TEST_PASSED_COUNT=TEST_PASSED_COUNT+1));
+# #     # echo "✅ Known Non-Existing Function - Passed";
+# # else
+# #     ALL_TESTS_PASS=false;
+# #     ((TEST_FAILED_COUNT=TEST_FAILED_COUNT+1));
+# #     echo "🚫 Known Non-Existing Function - Failed";
+# # fi
 
 
 
 
 
-echo "Summary:";
+
+# echo "Summary:";
 
 
-echo -e "\tPassed Count: ${TEST_PASSED_COUNT}";
-echo -e "\tFailed Count: ${TEST_FAILED_COUNT}";
-# echo -e "\tTotal Tests: $((TEST_PASSED_COUNT + TEST_FAILED_COUNT))";
-
-if ${ALL_TESTS_PASS}; then
-    echo -e "\t🚫 Testing Has Failed.";
-    exit 10;
-fi
+# echo -e "\tPassed Count: ${TEST_PASSED_COUNT}";
+# echo -e "\tFailed Count: ${TEST_FAILED_COUNT}";
+# # echo -e "\tTotal Tests: $((TEST_PASSED_COUNT + TEST_FAILED_COUNT))";
 
 
-echo -e "\t✅ The Testing Has Succeeded!";
-exit 0;
+# if ! ${ALL_TESTS_PASS}; then
+#     echo -e "\t✅ The Testing Has Succeeded!";
+# else
+#     echo -e "\t🚫 Testing Has Failed.";
+#     exit 10;
+# fi
+
+# exit 0;
+
+
+
+# if [ ! ${ALL_TESTS_PASS} ]; then
+#     echo -e "\t🚫 Testing Has Failed.";
+#     exit 10;
+# fi
+
+# echo -e "\t✅ The Testing Has Succeeded!";
+# exit 0;
 
 
 

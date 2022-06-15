@@ -33,13 +33,24 @@ ALL_UTIL_TESTS_PASS=true;
 # Testing Utility: Functions
 #
 
-echo "Utility: Functions - Running Tests...";
-# This way DOES output command output in the terminal:
-if ${HOME}/.not_another_terminal_tools/utilities/functions/tests.sh | awk '{ print "\t" $0 }'; then
-	echo -e '✅ Utility: Functions - Passed!';
+# echo "Utility: Functions - Running Tests...";
+
+
+# # This way DOES output command output in the terminal:
+# if ${HOME}/.not_another_terminal_tools/utilities/functions/tests.sh | awk '{ print "\t" $0 }'; then
+# 	echo -e '✅ Utility: Functions - Passed!';
+# else
+# 	echo -e '🚫 Utility: Functions - Did Not Pass.';
+# 	ALL_UTIL_TESTS_PASS=false;
+# fi
+
+
+# This way NOT command output in the terminal:
+if [ ${HOME}/.not_another_terminal_tools/utilities/functions/tests.sh ]; then
+    echo -e '✅ Utility: Functions - Passed!';
 else
-	echo -e '🚫 Utility: Functions - Did Not Pass.';
-	ALL_UTIL_TESTS_PASS=false;
+    echo -e '🚫 Utility: Functions - Did Not Pass.';
+    ALL_UTIL_TESTS_PASS=false;
 fi
 
 
