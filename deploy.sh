@@ -236,7 +236,7 @@ else
     echo -e "\t 🚫 Git Push";
 fi
 
-echo "";
+echo -e "✅ Deployment Completed!";
 exit 0;
 
 
