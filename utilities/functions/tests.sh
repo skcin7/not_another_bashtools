@@ -448,12 +448,12 @@ echo -e "\tFailed Count: ${TEST_FAILED_COUNT}";
 # echo -e "\tTotal Tests: $((TEST_PASSED_COUNT + TEST_FAILED_COUNT))";
 
 if ${ALL_TESTS_PASS}; then
-    echo -e "\t✅ The Testing Has Succeeded!";
-else
     echo -e "\t🚫 Testing Has Failed.";
     exit 10;
 fi
 
+
+echo -e "\t✅ The Testing Has Succeeded!";
 exit 0;
 
 
